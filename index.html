@@ -22,7 +22,8 @@
             position: relative;
             overflow-x: hidden;
         }
-            article[data-testid="test-profile-card"] {
+
+        article[data-testid="test-profile-card"] {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(148, 163, 184, 0.2);
@@ -35,7 +36,7 @@
             animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-          @keyframes slideUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
                 transform: translateY(40px);
@@ -45,7 +46,8 @@
                 transform: translateY(0);
             }
         }
-    .card-header {
+
+        .card-header {
             background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
             padding: 2px;
             position: relative;
@@ -77,7 +79,8 @@
             align-items: center;
             position: relative;
         }
-          img[data-testid="test-user-avatar"] {
+
+        img[data-testid="test-user-avatar"] {
             width: 160px;
             height: 160px;
             border-radius: 50%;
@@ -93,7 +96,8 @@
             transform: scale(1.08) rotate(3deg);
             border-color: rgba(59, 130, 246, 0.8);
         }
-         .user-info {
+
+        .user-info {
             flex: 1;
         }
 
@@ -247,6 +251,49 @@
             font-weight: bold;
         }
 
+        footer {
+            padding: 20px 35px;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            text-align: center;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer ul a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        footer ul a:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        footer ul a:focus {
+            outline: 2px solid #10b981;
+            outline-offset: 3px;
+        }
+
         @media (min-width: 768px) {
             .card-content {
                 flex-direction: row;
@@ -274,11 +321,13 @@
             .card-content {
                 padding: 30px 25px;
             }
+
+            footer ul {
+                flex-direction: column;
+                align-items: center;
+            }
         }
-
-
-      
-    </style> 
+    </style>
 </head>
 <body>
     <article data-testid="test-profile-card">
@@ -297,7 +346,7 @@
                 <p data-testid="test-user-bio">
                     I'm a Computer Engineering student and AI Frontend Developer passionate about creating intelligent,
                     user-friendly web applications. I love taking on new challenges, exploring how AI can enhance everyday technology, 
-                    and continuously learning to improve my skills. From training AI models to building sleek frontend interfaces,i enjoy turning ideas into smart
+                    and continuously learning to improve my skills. From training AI models to building sleek frontend interfaces, I enjoy turning ideas into smart
                     functional solutions.    
                 </p>
 
@@ -365,25 +414,26 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </footer>
     </article>
 
     <script>
-       
         function updateTime() {
             const timeElement = document.getElementById('currentTime');
             timeElement.textContent = Date.now();
         }
 
         updateTime();
-
-       
         setInterval(updateTime, 1000);
 
-   
         document.addEventListener('DOMContentLoaded', function() {
             const socialLinks = document.querySelectorAll('[data-testid^="test-user-social-"]');
             socialLinks.forEach(link => {
-                
                 if (!link.hasAttribute('target')) {
                     link.setAttribute('target', '_blank');
                 }
@@ -394,4 +444,4 @@
         });
     </script>
 </body>
-</html>
+</html> 

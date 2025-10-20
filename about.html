@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+   
+
+        main[data-testid="test-about-page"] {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease;
+        }
+        .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #10b981;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  color: #3b82f6;
+  transform: translateX(-3px);
+}
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #f1f5f9;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        section {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease backwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        section:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-4px);
+        }
+
+        h2 {
+            color: #f1f5f9;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 32px;
+            background: linear-gradient(180deg, #10b981, #3b82f6);
+            border-radius: 3px;
+        }
+
+        h3 {
+            color: #10b981;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        li {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 8px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 16px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+            }
+
+            section {
+                padding: 30px 24px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.15rem;
+            }
+
+            p, li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main data-testid="test-about-page">
+            <a href="index.html" class="back-btn" title="Go back home">
+  &#8592; Back
+</a>
+        <div class="hero">
+            <h1>About Me</h1>
+            <p class="hero-subtitle">A reflection on my journey, aspirations, and growth as a developer</p>
+        </div>
+
+<section data-testid="test-about-bio">
+  <h2>My Story</h2>
+  <p>
+    Hi there! I'm a Computer Engineering student who's deeply curious about how technology works beneath the surface. 
+    My interest in programming began with a desire to understand how intelligent systems function — from simple web 
+    interactions to the growing world of Artificial Intelligence.
+  </p>
+  <p>
+    Along the way, I've explored the fundamentals of AI, experimented with small model training, and learned how to 
+    integrate AI tools into real projects. These experiences opened my eyes to how powerful and creative technology 
+    can be when used thoughtfully.
+  </p>
+  <p>
+    Beyond AI, I'm passionate about frontend development — bringing ideas to life through clean, interactive, and 
+    user-friendly designs. I love challenges that push me to think critically and find smarter ways to solve problems.
+  </p>
+  <p>
+    When I'm not coding, you'll probably find me reading manhwa, learning something new, or brainstorming creative 
+    project ideas. I see every project as a new opportunity to grow, explore, and build something meaningful.
+  </p>
+</section>
+
+
+   <section data-testid="test-about-goals">
+  <h2>My Goals</h2>
+  <p>
+    My main goal is to become a skilled <strong>Full-Stack Developer</strong> who can build complete, scalable, and intelligent web applications. 
+    I'm passionate about understanding both the frontend and backend — how everything connects — and eventually mastering the art of creating 
+    systems that integrate Artificial Intelligence seamlessly into everyday projects.
+  </p>
+  <p>
+    I'm currently focused on sharpening my <strong>JavaScript</strong> skills and exploring as many frameworks as possible to gain at least a 70% 
+    mastery of their concepts. I believe in learning through practice, so I constantly challenge myself with real-world problems and personal projects.
+  </p>
+  <p>
+    Collaboration is something I value deeply. I want to work with other passionate developers to build one of the best portfolios possible — 
+    one that reflects creativity, innovation, and consistent growth. Every project I take on is a chance to improve, share knowledge, and learn 
+    something new from others.
+  </p>
+  <p>
+    In the long run, I hope my work makes a positive impact — creating tools, websites, and AI-driven experiences that inspire others to explore 
+    technology fearlessly and realize that great ideas can come from anyone willing to learn and build.
+  </p>
+</section>
+
+
+  <section data-testid="test-about-confidence">
+  <h2>Areas Where I'm Building Confidence</h2>
+  <p>
+    Growth for me starts with being honest about the areas I'm still learning and improving. I've realized that while I enjoy 
+    the logic and problem-solving side of programming, there are parts of development where I'm still building my confidence.
+  </p>
+
+  <h3>Technical Areas</h3>
+  <ul>
+    <li>
+      <strong>Backend Development:</strong> I'm currently focusing on understanding how servers, databases, and APIs work together. 
+      It's a new area for me, but one I find exciting and challenging.
+    </li>
+    <li>
+      <strong>React:</strong> I understand the basics, but managing complex states and component structures can sometimes be confusing. 
+      I'm working to strengthen my skills through practice and building real projects.
+    </li>
+    <li>
+      <strong>Frontend Design:</strong> I've learned that design isn't really where my passion lies. I can build solid, functional 
+      interfaces, but the creative design aspect doesn't excite me as much. I sometimes lose confidence when comparing my designs 
+      to what AI or professional designers can produce — but I'm learning to focus on my strengths in logic and functionality instead.
+    </li>
+  </ul>
+
+  <h3>Personal Growth</h3>
+  <ul>
+    <li>
+      <strong>Public Speaking:</strong> I sometimes find it difficult to express my thoughts clearly in front of others, but I'm 
+      slowly improving by sharing ideas and participating in discussions.
+    </li>
+    <li>
+      <strong>Consistency:</strong> Staying consistent every day can be tough, especially when results don't show immediately. 
+      I'm learning to trust the process and focus on steady progress instead of perfection.
+    </li>
+  </ul>
+</section>
+
+<section data-testid="test-about-future-note">
+  <h2>Note to My Future Self</h2>
+  <div class="highlight-box">
+    <p>
+      Hey future me — if you’re reading this, I hope you’ve become that full-stack developer you dreamed of, 
+      built your own AI projects, and landed the job you once thought was out of reach. 
+      You’ve worked hard to get here, so don’t forget to appreciate how far you’ve come.
+    </p>
+  </div>
+  <p>
+    There were days when you felt uncertain, when progress seemed slow, or when things didn’t go as planned. 
+    But you kept showing up — line after line of code, late nights, endless debugging — and that’s what made the difference. 
+    Remember: you didn’t give up when it was hard, and that’s why you’re here now.
+  </p>
+  <p>
+    Keep grinding until it works out, just like you always said. 
+    Keep learning, keep exploring, and never stop pushing your limits. 
+    The world of technology is always evolving, and so should you.
+  </p>
+  <p>
+    And never forget why you started — to prove to yourself that you can build something real 
+    from pure logic and creativity. That passion is your greatest strength.
+  </p>
+</section>
+
+
+ <section data-testid="test-about-extra">
+  <h2>Additional Thoughts & Reflections</h2>
+
+  <h3>On Learning</h3>
+  <p>
+    I learn best by combining research, tutorials, and hands-on practice. I spend a lot of time watching coding videos on YouTube, 
+    reading online resources, and experimenting with what I learn. I also attended a coding academy for three months to strengthen 
+    my skills and gain real-world experience. For me, learning isn’t just about following steps — it’s about understanding how and why things work.
+  </p>
+
+  <h3>On Community</h3>
+  <p>
+    I really enjoy connecting with other developers. Being part of the developer community helps me learn faster and stay motivated. 
+    I believe that sharing ideas, asking questions, and helping others is one of the best ways to grow as a programmer.
+  </p>
+
+  <h3>On Work-Life Balance</h3>
+  <p>
+    I often find myself learning even during my resting time. Coding doesn’t feel like work to me — it’s something I enjoy doing. 
+    I like spending my free time exploring new topics, improving my skills, or experimenting with something I just learned.
+  </p>
+
+  <h3>On Failure and Growth</h3>
+  <p>
+    I’ve learned that every mistake is a lesson. Instead of feeling bad when things don’t work out, I try to figure out what went wrong 
+    and learn from it. Each bug, error, or failed project helps me grow and become better at what I do.
+  </p>
+
+  <div class="highlight-box">
+    <p>
+      The more I learn, the more I realize that growth doesn’t come from perfection — it comes from trying, failing, and trying again. 
+      Every line of code, every challenge, every lesson is shaping me into the developer I’m becoming.
+    </p>
+  </div>
+</section>
+
+    </main>
+</body>
+</html>
