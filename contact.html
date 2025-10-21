@@ -333,110 +333,87 @@
             </button>
         </form>
     </div>
-    <script>
-        const form = document.getElementById('contactForm')
-         const successMessage = document.querySelector('[data-testid="test-contact-success"]');
-         const fullName = document.getElementById('fullName');
-         const nameErr = document.getElementById('nameError');
-
-         const emailInp = document.getElementById('email')
-         const emailErr = document.getElementById('emailError')
-
-         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-         const subject = document.getElementById('subject')
-         const subjectErr = document.getElementById('subjectError')
-
-         const message = document.getElementById('message')
-         const messageErr  = document.getElementById('messageError')
-
-         
-
-         
-
-   let  valid = true
-            
-         form.addEventListener("submit", (e)=>{
-            e.preventDefault();
-           
-      
-  
-            [fullName, emailInp, subject, message].forEach(inp => {
-                inp.classList.remove('error')
-            });
-                [nameErr, emailErr, subjectErr, messageErr].forEach(err => {
-                err.textContent = ''
-                err.classList.remove('show')
-            });
-
-  
-  if (fullName.value.trim() === '') {
-         
-    nameErr.textContent = 'Name is Required';
-    nameErr.classList.add('show');
-    fullName.classList.add('error');
-    valid = false
-
-  }
-  
-if(emailInp.value.trim() === ""){
-    emailErr.textContent = 'Email is Required';
-    emailErr.classList.add('show');
-    emailInp.classList.add('error')
-    valid = false
+<script>
     
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById('contactForm');
+  const successMessage = document.querySelector('[data-testid="test-contact-success"]');
+  const fullName = document.getElementById('fullName');
+  const nameErr = document.getElementById('nameError');
+  const emailInp = document.getElementById('email');
+  const emailErr = document.getElementById('emailError');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const subject = document.getElementById('subject');
+  const subjectErr = document.getElementById('subjectError');
+  const message = document.getElementById('message');
+  const messageErr = document.getElementById('messageError');
 
-}else if(!emailRegex.test(emailInp.value)){
+  let successTimeout;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    [fullName, emailInp, subject, message].forEach(inp => {
+      inp.classList.remove('error');
+    });
+    [nameErr, emailErr, subjectErr, messageErr].forEach(err => {
+      err.textContent = '';
+      err.classList.remove('show');
+    });
+
+    if (fullName.value.trim() === '') {
+      nameErr.textContent = 'Name is Required';
+      nameErr.classList.add('show');
+      fullName.classList.add('error');
+      valid = false;
+    }
+
+    if (emailInp.value.trim() === "") {
+      emailErr.textContent = 'Email is Required';
+      emailErr.classList.add('show');
+      emailInp.classList.add('error');
+      valid = false;
+    } else if (!emailRegex.test(emailInp.value)) {
       emailErr.textContent = 'Please Enter a Valid Email';
-      emailErr.classList.add('show')
-      emailInp.classList.add('error')
-      vaild = false
+      emailErr.classList.add('show');
+      emailInp.classList.add('error');
+      valid = false;
+    }
 
-}
-if(subject.value.trim() === ''){
+    if (subject.value.trim() === '') {
       subjectErr.textContent = 'Subject is required';
-      subjectErr.classList.add('show')
-      subject.classList.add('error')
-      valid = false
-}
+      subjectErr.classList.add('show');
+      subject.classList.add('error');
+      valid = false;
+    }
 
-if(message.value.trim()=== ''){
-    messageErr.textContent = 'Message is required'
-    messageErr.classList.add('show')
-    message.classList.add('error')
-    valid = false
+    if (message.value.trim() === '') {
+      messageErr.textContent = 'Message is required';
+      messageErr.classList.add('show');
+      message.classList.add('error');
+      valid = false;
+    } else if (message.value.length <= 10) {
+      messageErr.textContent = 'Message must be at least 10 characters long';
+      messageErr.classList.add('show');
+      message.classList.add('error');
+      valid = false;
+    }
 
-}else if(message.value.length <= 10){
-    messageErr.textContent = 'Message must be at least 10 characters long';
-     messageErr.classList.add('show')
-    message.classList.add('error')
-    valid = false
-}
+    if (valid) {
+      successMessage.classList.add('show');
+      form.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      clearTimeout(successTimeout);
+      successTimeout = setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+    }
+  });
+});
 
-if(valid){
-    successMessage.classList.add('show')
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-      
-
-
-                    
-                   
-        
-
-
- 
-
-         })
-     
-
-  
-
-    
-    </script>
-
+</script>
    
 </body>
 </html>
